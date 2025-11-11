@@ -1,13 +1,140 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color:#0e7203;
+  color: white;
+  border: 15px solid #633d30;
+  min-height: 100vh;
+  font-family:'Roboto' ,sans-serif;
+}
+.header,h1{
+  color:white;
+  text-align: center;
+  margin:40px 10px;}
+
+h1{
+  text-decoration-style: solid;
+  text-decoration-line: underline;  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.input-form,.boton-add{
+  padding: 10px;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 500;
 }
+
+.input-form{
+  width: 350px;
+  border:2px white solid ;
+  background-color: #004000;
+  color: white;
+  
+}
+
+.boton-add{
+  width: 90px;
+  color:#fff;
+  cursor: pointer;
+  margin-left: 15px;
+  border:2px white solid ;
+  background: transparent;
+  transition: 0.3s all ease-in-out;
+}
+
+.boton-add:hover{
+  background:#004000;
+}
+
+.todo-li{
+  margin: 16px;
+  background: transparent;
+  font-size: 24px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.li-list{
+  display: flex;
+  justify-content: space-between;
+  border:1px white solid ;
+  padding:  10px;
+}
+
+
+.button-complete,
+.button-save,
+.button-delete,
+.button-edit{
+  border:none;
+  border-radius:10px ;
+  cursor:pointer;
+  width:100px;
+  height: 40px;
+  text-align: center;
+  font-size: 15px;
+  margin-left: 30px;
+  color:white ;
+  }
+
+.button-complete{
+  background-color: #4fce5d;
+}
+
+
+.button-delete{
+  background-color: #fc4338;
+} 
+
+.button-save{
+  background-color: #9370DB;
+  } 
+
+.button-edit{
+  background-color: #669bfa;
+} 
+
+.completed {
+  text-decoration-style:solid ;
+  text-decoration-line:line-through ;
+  text-decoration-color: #ffffff;
+  opacity: 0.9;
+}
+
+.li-input{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 40px;
+  font-size: 18px;
+  border: 2px solid #004000;
+  padding: 0 12px;
+  background-color: #004000;
+  color: white;
+}
+
+input:focus,
+button:focus{
+  outline: none;
+}
+
+.text-complete,.text-edit,.text-delete,.text-save{
+  padding: 5px;
+}
+
