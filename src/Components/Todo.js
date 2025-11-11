@@ -23,11 +23,21 @@ const Todo = ({todo,todos,setTodos,id}) => {
         setEdit(true);
     }
     const onSave = (id) => {
-        if(inputEdit && inputEdit.trim()){
-            saveinput(inputEdit.trim());
-        } else {
+        const trimmedInput = inputEdit ? inputEdit.trim() : '';
+        
+        // Validate: no empty tasks, max length 500 characters
+        if (!trimmedInput) {
             setInputEdit(todo.text);
+            setEdit(false);
+            return;
         }
+        
+        if (trimmedInput.length > 500) {
+            alert("La tarea es demasiado larga. Máximo 500 caracteres.");
+            return;
+        }
+        
+        saveinput(trimmedInput);
         setEdit(false);
     }
 
@@ -48,7 +58,7 @@ const Todo = ({todo,todos,setTodos,id}) => {
     return (
         <div className="todo-li">
             <li className='li-list'>
-                <input className="li-input" value={inputEdit}  onChange={onchangedsave}/>
+                <input className="li-input" value={inputEdit}  onChange={onchangedsave} maxLength={500}/>
                 <button className="button-save" onClick={() => onSave(id)}>
                     <span className="text-save">save</span><i className="fas fa-save"></i>
                 </button>
