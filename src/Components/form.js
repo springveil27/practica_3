@@ -10,10 +10,18 @@ const Form = ({ todos, setTodos }) => {
 
     const onsubmit = (e) => {
         e.preventDefault();
-        if (!input.trim()) return; // evita tareas vacías
+        const trimmedInput = input.trim();
+        
+        // Validate: no empty tasks, max length 500 characters
+        if (!trimmedInput) return;
+        if (trimmedInput.length > 500) {
+            alert("La tarea es demasiado larga. Máximo 500 caracteres.");
+            return;
+        }
+        
         setTodos([
             ...todos,
-            { text: input, completed: false, id: uuid() }
+            { text: trimmedInput, completed: false, id: uuid() }
         ]);
         setInput("");
     }
@@ -27,6 +35,7 @@ const Form = ({ todos, setTodos }) => {
                 autoComplete="off"
                 value={input}
                 onChange={onChange}
+                maxLength={500}
             />
             <button className="boton-add" type="submit">agregar</button>
         </form>
