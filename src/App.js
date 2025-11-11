@@ -1,9 +1,17 @@
-import React,{useState} from "react";
+import React,{use, useEffect, useState} from "react";
 import Form from "./Components/form";
 import Todolist from "./Components/Todolist";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const getinitialtodos = () => {
+    const storedtodos = localStorage.getItem("todos")
+
+    return storedtodos ? JSON.parse(storedtodos) : [];
+  }
+
+  const [todos, setTodos] = useState(getinitialtodos);
+  useEffect(() => { localStorage.setItem("todos", JSON.stringify(todos))}, [todos]);
+  
   return (
     <div className="App">
     <div className="header "> 
